@@ -1,14 +1,35 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const Fuse = require("fuse.js");
+const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-app.get('/post', (req, res) => {
-  res.send('Hello Im am post')
-})
+const myArray = ["ayan", "assam", "banana", "hatigaon", "hati", "sati"];
+
+const options = {
+  keys: ["title"],
+};
+
+const fuse = new Fuse(myArray, options);
+
+
+// GET ROUTE
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+app.get("/post", (req, res) => {
+  res.send("Hello Im am post");
+});
+
+// SEARCH FUNCTION
+
+app.post("/search", (req, res) => {
+  const pattern = req.body;
+  const x = fuse.search(pattern);
+  console.log(x);
+  res.send(x);
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+  console.log(`Example app listening at http://localhost:${port}`);
+});
