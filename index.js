@@ -1,6 +1,8 @@
 const express = require("express");
+var cors = require('cors')
 const Fuse = require("fuse.js");
 const app = express();
+app.use(cors())
 const port = 3000;
 
 const myArray = ["ayan", "assam", "banana", "hatigaon", "hati", "sati"];
