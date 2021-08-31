@@ -31,9 +31,9 @@ app.post("/search", (req, res) => {
   const pattern = req.body.query;
   console.log(pattern)
   const x = fuse.search(pattern);
-
   console.log(x)
-  res.json(!!x ? x : []);
+  const results = x.slice(0,5)
+  res.json(!!results ? results : []);
 
 });
 
