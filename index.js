@@ -16,11 +16,14 @@ const options = {
 const fuse = new Fuse(myArray, options);
 
 
-// GET ROUTE
+// GET AVAILABLE LOCATION
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/avaiable-location", (req, res) => {
+  res.json(myArray);
 });
+
+// GET POST
+
 app.get("/post", (req, res) => {
   res.send("Hello Im am post");
 });
