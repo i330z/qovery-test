@@ -18,7 +18,7 @@ const fuse = new Fuse(myArray, options);
 
 // GET AVAILABLE LOCATION
 
-app.get("/avaiable-location", (req, res) => {
+app.get("/available-location", (req, res) => {
   res.json(myArray);
 });
 
